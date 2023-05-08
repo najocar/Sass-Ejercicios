@@ -1,0 +1,36 @@
+$rojo: #ff4545;
+$morado: rgb(186, 73, 203);
+$black: black;
+
+$completo: 100%;
+$z80:80%;
+
+.danger{
+    color: $rojo;
+}
+
+.intense{
+    color: $rojo;
+    background-color: $black;
+}
+
+.centrado{
+    text-align: center;
+    margin: auto;
+}
+
+.fullwidth{
+    width: $completo;
+}
+
+.w-80{
+    width: $z80;
+}
+
+.listado{
+    font-weight: bold;
+    text-align: left;
+    p{
+        text-decoration: underline;
+    }
+}

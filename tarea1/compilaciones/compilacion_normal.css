@@ -1,0 +1,31 @@
+.danger {
+  color: #ff4545;
+}
+
+.intense {
+  color: #ff4545;
+  background-color: black;
+}
+
+.centrado {
+  text-align: center;
+  margin: auto;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.listado {
+  font-weight: bold;
+  text-align: left;
+}
+.listado p {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=compilacion_normal.css.map */
