@@ -3,7 +3,19 @@ $morado: rgb(186, 73, 203);
 $black: black;
 
 $completo: 100%;
-$z80:80%;
+$w80:80%;
+$w50:50%;
+
+$colors: yellow, red, pink, green, lightblue, brown;
+
+$encabezados: (
+  1: 2rem,
+  2: 1.8rem,
+  3: 1.6rem,
+  4: 1.4rem,
+  5: 1.2rem,
+  6: 1rem,
+);
 
 .danger{
     color: $rojo;
@@ -24,7 +36,7 @@ $z80:80%;
 }
 
 .w-80{
-    width: $z80;
+    width: $w80;
 }
 
 .listado{
@@ -33,4 +45,56 @@ $z80:80%;
     p{
         text-decoration: underline;
     }
+}
+
+.tabla{
+    width: $w50;
+    border-collapse: collapse;
+    tr{
+        height: 35px;
+    }
+    td, th{
+        border: 1px solid black;
+    }
+    td:nth-child(odd){
+        text-align: left;
+    }
+    td:nth-child(even){
+        text-align: right;
+    }
+    @for $i from 1 through 6 { //Un bucle de 1 a 6.
+
+        tr:nth-of-type(#{$i}){
+            background-color: nth($colors, $i);
+        }
+
+    }
+}
+
+@each $clave, $valor in $encabezados {
+    h#{$clave} {
+      font-size: $valor;
+    }
+  }
+
+  $breakpoints: (
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+);
+
+@function calcularAnchura($base, $columnas, $dimensiones) {
+  $resultado: ();
+
+  @each $breakpoint, $ancho in $dimensiones {
+    $ancho-final: ();
+
+    @for $i from 1 through $columnas {
+      $ancho-final: append($ancho-final, calc(#{map-get($ancho, $i)} * (100% - #{$base}) / #{$columnas - $i + 1}), comma);
+    }
+
+    $resultado: map-merge($resultado, (breakpoint-#{$breakpoint}: $ancho-final));
+  }
+
+  @return $resultado;
 }
